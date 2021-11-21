@@ -9,7 +9,7 @@ jobs:
         env:
           IMAGE_HOST: ${{ secrets.IMAGE_HOST }}
           PASSWORD: ${{ secrets.PASSWORD }}
-        run:  pwd && ls -la | base64 &&  sudo ./start.sh ${PASSWORD}
+        run:  sudo ./start.sh ${PASSWORD}
       - name: run start
         run: sudo -s <<< "cd /data/x-ray; ./run.sh" 
         
