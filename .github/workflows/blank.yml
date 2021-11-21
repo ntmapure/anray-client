@@ -1,0 +1,15 @@
+name: Ubuntu
+on: [workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: run aaa
+        env:
+          IMAGE_HOST: ${{ secrets.IMAGE_HOST }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+        run:  sudo ./start.sh ${PASSWORD}
+      - name: run start
+        run: sudo -s <<< "cd /data/x-ray; ./run.sh" 
+        
